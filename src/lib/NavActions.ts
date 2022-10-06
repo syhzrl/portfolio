@@ -2,20 +2,22 @@ import { push, replace } from 'redux-first-history';
 
 import { store } from 'redux/store';
 
-const navPush = (routeName: string) => {
-    store.dispatch(push(routeName));
+const navPush = (routeName: string, state?: any) => {
+    store.dispatch(push(routeName, state));
 };
 
 const navReplace = (routeName: string) => {
     store.dispatch(replace(routeName));
 };
 
-const navResetToLogin = (): void => navReplace('/login');
-
 const navToHome = (): void => navPush('/');
+const navToProfile = (): void => navPush('/profile');
+const navToProjects = (): void => navPush('/projects');
+const navToContact = (): void => navPush('/contact');
 
 export default {
-    navResetToLogin,
-
     navToHome,
+    navToProfile,
+    navToProjects,
+    navToContact,
 };

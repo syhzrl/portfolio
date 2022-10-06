@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import Full from 'containers/Full';
 
-const App = (): JSX.Element => {
+const App: FunctionComponent = () => {
+    const lol = '';
+
     return (
-        <div className='App'>
-            <Full />
-        </div>
+        <Full />
     );
 };
 

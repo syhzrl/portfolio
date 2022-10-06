@@ -4,16 +4,17 @@ import { HistoryRouter as Router } from 'redux-first-history/rr6';
 
 import { history } from 'redux/store';
 
-import LoginScreen from 'containers/auth/Login';
-
 import HomeScreen from 'containers/home';
+import ProfileScreen from 'containers/profile';
+import ProjectsScreen from 'containers/projects';
+import ContactScreen from 'containers/contact';
 
-import PrivateRoute from './PrivateRoutes';
-
-const PrivateBucket: FunctionComponent = () => {
+const NestedBucket: FunctionComponent = () => {
     return (
-        <Route path='/' element={<PrivateRoute />}>
-            <Route element={<HomeScreen />} />
+        <Route path='/' element={<HomeScreen />}>
+            <Route path='/profile' element={<ProfileScreen />} />
+            <Route path='/projects' element={<ProjectsScreen />} />
+            <Route path='/contact' element={<ContactScreen />} />
         </Route>
     );
 };
@@ -22,10 +23,11 @@ const NavRoutes: FunctionComponent = (props) => {
     return (
         <Router history={history}>
             <Routes>
-                <Route path='/login' element={<LoginScreen />} />
+                <Route path='/' element={<Navigate replace to='/profile' />} />
 
-                <Route path='*' element={<Navigate replace to='/' />} />
-                {PrivateBucket(props)}
+                <Route path='*' element={<Navigate replace to='/profile' />} />
+
+                {NestedBucket(props)}
             </Routes>
         </Router>
     );

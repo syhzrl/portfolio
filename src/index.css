@@ -1,0 +1,17 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: KotoriRose-Regular;
+}
+
+@font-face {
+  font-family: 'KotoriRose-Regular';
+  src: url('./assets/fonts/KotoriRose-Regular.otf');
+}
+
+@font-face {
+  font-family: 'KotoriRose-Bold';
+  src: url('./assets/fonts/KotoriRose-Bold.otf');
+}

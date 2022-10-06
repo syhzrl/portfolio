@@ -3,9 +3,7 @@ import createSagaMiddleware from '@redux-saga/core';
 import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory } from 'history';
 
-import authReducer from 'redux/slices/auth';
-
-import rootSaga from 'sagas';
+// import rootSaga from 'sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
@@ -14,7 +12,6 @@ const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHisto
 
 const rootReducer = combineReducers({
     router: routerReducer,
-    auth: authReducer.reducers,
 });
 
 export const store = configureStore({
@@ -25,7 +22,7 @@ export const store = configureStore({
     devTools: process.env.REACT_APP_STAGE !== 'prod',
 });
 
-sagaMiddleware.run(rootSaga);
+// sagaMiddleware.run(rootSaga);
 
 export const history = createReduxHistory(store);
 export type AppDispatch = typeof store.dispatch;

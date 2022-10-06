@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import Routes from 'navigation/Routes';
 
-const Full = (): JSX.Element => {
+const Full: FunctionComponent = () => {
     return (
         <Routes />
     );
