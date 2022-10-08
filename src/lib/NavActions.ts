@@ -10,10 +10,10 @@ const navReplace = (routeName: string) => {
     store.dispatch(replace(routeName));
 };
 
-const navToHome = (): void => navPush('/');
-const navToProfile = (): void => navPush('/profile');
-const navToProjects = (): void => navPush('/projects');
-const navToContact = (): void => navPush('/contact');
+const navToHome = (): void => navPush('/portfolio');
+const navToProfile = (): void => navPush('/portfolio/profile');
+const navToProjects = (): void => navPush('/portfolio/projects');
+const navToContact = (): void => navPush('/portfolio/contact');
 
 export default {
     navToHome,

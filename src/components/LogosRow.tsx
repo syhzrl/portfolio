@@ -17,6 +17,7 @@ const LogosRow: FunctionComponent<LogosRowProps> = (props: LogosRowProps) => {
 
                 return (
                     <SVG
+                        key={Math.random()}
                         src={icon}
                         id={isSaga ? 'sagaIcon' : 'icon'}
                     />
