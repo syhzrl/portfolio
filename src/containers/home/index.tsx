@@ -12,7 +12,7 @@ const HomeScreen: FunctionComponent = () => {
                 height: '100vh',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center',
+                // justifyContent: 'center',
                 alignItems: 'center',
             }}
         >
@@ -25,7 +25,7 @@ const HomeScreen: FunctionComponent = () => {
             </div>
             <div
                 style={{
-                    height: '100vh',
+                    height: '100%',
                     width: '90%',
                 }}
             >

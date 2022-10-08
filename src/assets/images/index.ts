@@ -1,9 +1,5 @@
-import monkey from './monkey.png';
-import monkeyFlat from './monkey-flat.png';
-import monkeySVG from './monkey-flat.svg';
+import bongoCat from './bongo-cat-codes.gif';
 
 export default {
-    monkey,
-    monkeyFlat,
-    monkeySVG,
+    bongoCat,
 };
