@@ -14,6 +14,7 @@ const HomeScreen: FunctionComponent = () => {
 
     useEffect(() => {
         console.log(location);
+        if (location.pathname === '/') NavActions.navToProfile();
     }, []);
 
     return (

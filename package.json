@@ -1,7 +1,7 @@
 {
-  "homepage": "https://syhzrl.github.io/portfolio",
+  "homepage": "https://syhzrl.github.io/portfolio/",
   "name": "portfolio",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "dependencies": {
     "@redux-saga/core": "^1.2.1",
