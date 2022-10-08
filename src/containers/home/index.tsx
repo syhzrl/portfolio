@@ -12,6 +12,10 @@ const HomeScreen: FunctionComponent = () => {
     //     if (location.pathname === '/') NavActions.navToProfile();
     // }, []);
 
+    useEffect(() => {
+        console.log(location);
+    }, []);
+
     return (
         <div
             style={{
