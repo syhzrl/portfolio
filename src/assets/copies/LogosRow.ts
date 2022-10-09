@@ -7,9 +7,9 @@ export const profileLogosRow: ILogo[] = [{
 {
     icon: icons.typescript,
 },
-{
-    icon: icons.javascript,
-},
+// {
+//     icon: icons.javascript,
+// },
 {
     icon: icons.redux,
 },
@@ -18,8 +18,13 @@ export const profileLogosRow: ILogo[] = [{
     isSaga: true,
 },
 {
-    icon: icons.html,
+    icon: icons.styledComponents,
     isSaga: true,
-}];
+},
+{
+    icon: icons.sass,
+    isSaga: true,
+},
+];
 
 export const heetsLogosRow: ILogo[] = [];

@@ -1,26 +1,15 @@
-import React, { FunctionComponent, useEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+import React, { FunctionComponent } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import NavBar from 'components/NavBar';
-import Colours from 'assets/themes/Colours';
-import NavActions from 'lib/NavActions';
 
 const HomeScreen: FunctionComponent = () => {
-    const location = useLocation();
-
-    // useEffect(() => {
-    //     console.log(location);
-    //     if (location.pathname === '/portfolio') NavActions.navToProfile();
-    // }, []);
-
     return (
         <div
             style={{
-                backgroundColor: Colours.backgroundPrimary,
                 height: '100vh',
                 display: 'flex',
                 flexDirection: 'column',
-                // justifyContent: 'center',
                 alignItems: 'center',
             }}
         >
@@ -31,6 +20,7 @@ const HomeScreen: FunctionComponent = () => {
             >
                 <NavBar />
             </div>
+
             <div
                 style={{
                     height: '100%',
