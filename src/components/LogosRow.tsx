@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SVG from 'react-inlinesvg';
 
 import { ILogo } from 'entities/Logos';
+import icons from 'assets/icons';
 
 interface LogosRowProps {
     data: ILogo[];
@@ -46,6 +47,20 @@ const LogosRowContainer = styled.div`
     @media (max-width: 550px) {
         justify-content: center;
         align-items: center;
+
+        width: 80%;
+
+        // #icon {
+        //     height: 40px;
+        //     width: 40px;
+        //     flex: 0 1 25%;
+        // }
+    
+        // #sagaIcon {
+        //     height: 40px;
+        //     width: 60px;
+        //     flex: 0 1 25%;
+        // }
     }
 `;
 
