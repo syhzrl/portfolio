@@ -8,10 +8,10 @@ import NavActions from 'lib/NavActions';
 const HomeScreen: FunctionComponent = () => {
     const location = useLocation();
 
-    useEffect(() => {
-        console.log(location);
-        if (location.pathname === '/portfolio') NavActions.navToProfile();
-    }, []);
+    // useEffect(() => {
+    //     console.log(location);
+    //     if (location.pathname === '/portfolio') NavActions.navToProfile();
+    // }, []);
 
     return (
         <div

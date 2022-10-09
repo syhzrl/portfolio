@@ -11,10 +11,10 @@ import ContactScreen from 'containers/contact';
 
 const NestedBucket: FunctionComponent = () => {
     return (
-        <Route path='/portfolio' element={<HomeScreen />}>
-            <Route path='/portfolio/profile' element={<ProfileScreen />} />
-            <Route path='/portfolio/projects' element={<ProjectsScreen />} />
-            <Route path='/portfolio/contact' element={<ContactScreen />} />
+        <Route path='/' element={<HomeScreen />}>
+            <Route path='/profile' element={<ProfileScreen />} />
+            <Route path='/projects' element={<ProjectsScreen />} />
+            <Route path='/contact' element={<ContactScreen />} />
         </Route>
     );
 };
