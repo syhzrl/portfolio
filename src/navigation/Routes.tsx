@@ -23,7 +23,8 @@ const NavRoutes: FunctionComponent = (props) => {
     return (
         <Router history={history}>
             <Routes>
-                {/* <Route path='*' element={<Navigate replace to='/profile' />} /> */}
+                <Route path='/' element={<Navigate replace to='/profile' />} />
+                <Route path='*' element={<Navigate replace to='/profile' />} />
 
                 {NestedBucket(props)}
             </Routes>
