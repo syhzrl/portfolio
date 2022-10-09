@@ -13,6 +13,8 @@ export const MainContainer = styled.div`
         justify-content: center;
 
         gap: 20px;
+
+        padding-bottom: 20px;
     }
 `;
 
@@ -95,5 +97,7 @@ export const TechsContainer = styled.div`
         font-size: 20px;
 
         text-align: center;
+
+        align-items: center;
     }
 `;

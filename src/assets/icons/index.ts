@@ -8,6 +8,9 @@ import typescript from './typescript.svg';
 import redux from './redux.svg';
 import reduxSaga from './redux-saga.svg';
 import html from './html.svg';
+import sass from './sass.svg';
+import styledComponents from './styled-components.svg';
+import css from './css.svg';
 
 export default {
     monkey,
@@ -20,4 +23,7 @@ export default {
     redux,
     reduxSaga,
     html,
+    sass,
+    styledComponents,
+    css,
 };

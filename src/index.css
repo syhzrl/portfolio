@@ -6,6 +6,17 @@ body {
   font-family: MadeTommy;
 }
 
+body {
+  height: 100vh;
+  width: 100vw;
+
+  background-color: #141628;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 p {
   margin: 0;
   padding: 0;
