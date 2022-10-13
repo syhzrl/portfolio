@@ -11,6 +11,8 @@ import html from './html.svg';
 import sass from './sass.svg';
 import styledComponents from './styled-components.svg';
 import css from './css.svg';
+import dot from './dot.svg';
+import dash from './dash.svg';
 
 export default {
     monkey,
@@ -26,4 +28,6 @@ export default {
     sass,
     styledComponents,
     css,
+    dot,
+    dash,
 };

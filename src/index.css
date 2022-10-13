@@ -4,6 +4,7 @@ body {
   padding: 0;
 
   font-family: MadeTommy;
+  overflow-x: hidden;
 }
 
 body {
