@@ -13,10 +13,11 @@ interface ProjectDetailsProps {
     title: string;
     description: string;
     techs: ILogo[];
+    images: string[];
 }
 
 const ProjectDetails: FunctionComponent<ProjectDetailsProps> = (props: ProjectDetailsProps) => {
-    const { title, description, techs } = props;
+    const { title, description, techs, images } = props;
 
     return (
         <MainContainer>
@@ -26,7 +27,7 @@ const ProjectDetails: FunctionComponent<ProjectDetailsProps> = (props: ProjectDe
                         {title}
                     </p>
 
-                    <p>
+                    <p id='description'>
                         {description}
                     </p>
                 </TitleDescContainer>
@@ -43,7 +44,9 @@ const ProjectDetails: FunctionComponent<ProjectDetailsProps> = (props: ProjectDe
             </InnerContainer>
 
             <InnerContainer>
-                <Carousel />
+                <Carousel
+                    projectImages={images}
+                />
             </InnerContainer>
         </MainContainer>
     );
@@ -85,6 +88,14 @@ const TitleDescContainer = styled.div`
 
     #title {
         font-size: 32px;
+    }
+
+    #description {
+        text-align: justify;
+
+        line-height: 24px;
+
+        font-size: 20px;
     }
 `;
 

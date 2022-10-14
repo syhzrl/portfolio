@@ -6,10 +6,16 @@ import icons from 'assets/icons';
 import images from 'assets/images';
 import Colours from 'assets/themes/Colours';
 
-const Carousel: FunctionComponent = () => {
+interface CarouselProps {
+    projectImages: string[];
+}
+
+const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps) => {
+    const { projectImages } = props;
+
     const [imageNum, setImageNum] = useState(0);
 
-    const arrayOfImages = [images.img1, images.img1, images.img1];
+    const arrayOfImages = [images.heetsLogin, images.heets1, images.heets2];
 
     const chevronClickHandler = (direction: string) => {
         if (direction === 'left') {
@@ -55,7 +61,7 @@ const Carousel: FunctionComponent = () => {
             </ChevronsContainer>
 
             <LineMarkerContainer>
-                {arrayOfImages.map((item, index) => {
+                {projectImages.map((item, index) => {
                     return (
                         <LineMarker
                             key={Math.random()}
@@ -66,7 +72,7 @@ const Carousel: FunctionComponent = () => {
             </LineMarkerContainer>
 
             <img
-                src={arrayOfImages[imageNum]}
+                src={projectImages[imageNum]}
                 alt='Project Images'
             />
         </MainContainer>

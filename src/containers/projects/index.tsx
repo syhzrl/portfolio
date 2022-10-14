@@ -5,6 +5,9 @@ import images from 'assets/images';
 import {
     heetsDetails,
     vpcDetails,
+    mangoDetails,
+    reaDetails,
+
     faqBotDetails,
     ageBotDetails,
 } from 'assets/copies/ProjectDetails';
@@ -26,7 +29,7 @@ const ProjectsScreen: FunctionComponent = () => {
     const [otherProjectData, setOtherProjectData] = useState<IProject[]>([]);
 
     useEffect(() => {
-        setMainProjectData([vpcDetails, heetsDetails]);
+        setMainProjectData([vpcDetails, heetsDetails, mangoDetails, reaDetails]);
         setOtherProjectData([faqBotDetails, ageBotDetails]);
     }, []);
 

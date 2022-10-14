@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 
 import Colours from 'assets/themes/Colours';
 
@@ -26,6 +26,7 @@ const ProjectRow: FunctionComponent<ProjectRowProps> = (props: ProjectRowProps) 
     const [projectTitle, setProjectTitle] = useState('');
     const [projectDescription, setProjectDescription] = useState('');
     const [projectTechs, setProjectTechs] = useState<ILogo[]>([]);
+    const [projectImages, setProjectImages] = useState<string[]>([]);
 
     useEffect(() => {
         switch (projectType) {
@@ -43,11 +44,12 @@ const ProjectRow: FunctionComponent<ProjectRowProps> = (props: ProjectRowProps) 
 
     useEffect(() => {
         if (projectData) {
-            const { title, description, techs } = projectData;
+            const { title, description, techs, images } = projectData;
 
             setProjectTitle(title);
             setProjectDescription(description);
             setProjectTechs(techs);
+            setProjectImages(images);
         }
     }, [projectData]);
 
@@ -81,6 +83,7 @@ const ProjectRow: FunctionComponent<ProjectRowProps> = (props: ProjectRowProps) 
                 title={projectTitle}
                 description={projectDescription}
                 techs={projectTechs}
+                images={projectImages}
             />
 
             <Paginator
