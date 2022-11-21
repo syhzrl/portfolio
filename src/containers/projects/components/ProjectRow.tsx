@@ -1,7 +1,9 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
+import SVG from 'react-inlinesvg';
 
 import Colours from 'assets/themes/Colours';
+import icons from 'assets/icons';
 
 import { IProject, IProjectTypeEnum } from 'entities/Projects';
 import { ILogo } from 'entities/Logos';
@@ -79,27 +81,108 @@ const ProjectRow: FunctionComponent<ProjectRowProps> = (props: ProjectRowProps) 
                 {pageTitle}
             </p>
 
-            <ProjectDetails
+            {/* <ProjectDetails
                 title={projectTitle}
                 description={projectDescription}
                 techs={projectTechs}
                 images={projectImages}
-            />
+            /> */}
 
-            <Paginator
+            <div
+                style={{
+                    display: 'flex',
+                    gap: '20px',
+                }}
+            >
+                {data.map(item => {
+                    const { title, icon } = item;
+                    return (
+                        <Card>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    gap: '10px',
+                                }}
+                            >
+                                <p>
+                                    {title}
+                                </p>
+
+                                <SVG
+                                    src={icon}
+                                    id='icon'
+                                />
+                            </div>
+
+                            <p id='test'>
+                                Learn More
+                            </p>
+                        </Card>
+
+                    );
+                })}
+            </div>
+
+            {/* <Paginator
                 maxPage={maxPage}
                 pageNum={pageNum}
                 onPageChangeHandler={onPageChangeHandler}
                 numberClickHandler={setPageNum}
-            />
+            /> */}
         </MainContainer>
     );
 };
 
+const Card = styled.div`
+    background-color: transparent;
+
+    height: 200px;
+    width: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    border-radius: 10px;
+    border: 1px solid white;
+
+    color: white;
+
+    cursor: pointer;
+
+    p {
+        font-size: 28px;
+    }
+
+    #icon {
+        height: 50px;
+        width: 50px;
+    }
+
+    #test {
+        opacity: 0;
+    transition: all 0.5s ease;
+
+    }
+
+    /* transition: all 0.5s ease; */
+
+    &:hover {
+        #test {
+            opacity: 100;
+        }
+    }
+`;
+
 const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 
     #pageTitle {
         font-size: 32px;

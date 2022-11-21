@@ -88,14 +88,21 @@ const ProjectsScreen: FunctionComponent = () => {
                 projectType={IProjectTypeEnum.mainProject}
             />
 
-            <DividerLine />
+            {/* <DividerLine /> */}
 
-            <ProjectRow
+            {/* <ProjectRow
                 data={otherProjectData}
                 projectType={IProjectTypeEnum.otherProject}
             />
 
             <DividerLine />
+
+            <ProjectRow
+                data={otherProjectData}
+                projectType={IProjectTypeEnum.sideProject}
+            />
+
+            <DividerLine /> */}
 
             <div style={{ paddingBottom: '20px' }} />
 

@@ -110,7 +110,7 @@ const ChevronButton = styled.button<{ right?: boolean }>`
 
     height: fit-content;
 
-    color: white;
+    color: ${Colours.grey};
 
     border: none;
 

@@ -13,6 +13,12 @@ import styledComponents from './styled-components.svg';
 import css from './css.svg';
 import dot from './dot.svg';
 import dash from './dash.svg';
+import fire from './fire.svg';
+import mango from './mango.svg';
+import realEstate from './real-estate.svg';
+import audit from './audit.svg';
+import sticky from './sticky.svg';
+import book from './book.svg';
 
 export default {
     monkey,
@@ -30,4 +36,10 @@ export default {
     css,
     dot,
     dash,
+    fire,
+    mango,
+    realEstate,
+    audit,
+    sticky,
+    book,
 };

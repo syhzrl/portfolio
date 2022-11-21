@@ -5,6 +5,7 @@ export interface IProject {
     description: string;
     techs: ILogo[];
     images: string[];
+    icon: string;
 }
 
 export enum IProjectTypeEnum {

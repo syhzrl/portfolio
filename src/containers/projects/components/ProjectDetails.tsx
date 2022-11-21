@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
+import SVG from 'react-inlinesvg';
 
 import Colours from 'assets/themes/Colours';
 
@@ -7,6 +8,7 @@ import { ILogo } from 'entities/Logos';
 
 import LogosRow from 'components/LogosRow';
 
+import icons from 'assets/icons';
 import Carousel from './Carousel';
 
 interface ProjectDetailsProps {
@@ -21,7 +23,7 @@ const ProjectDetails: FunctionComponent<ProjectDetailsProps> = (props: ProjectDe
 
     return (
         <MainContainer>
-            <InnerContainer>
+            {/* <InnerContainer>
                 <TitleDescContainer>
                     <p id='title'>
                         {title}
@@ -47,14 +49,55 @@ const ProjectDetails: FunctionComponent<ProjectDetailsProps> = (props: ProjectDe
                 <Carousel
                     projectImages={images}
                 />
-            </InnerContainer>
+            </InnerContainer> */}
+
+            <Card>
+                <p>
+                    Mango
+                </p>
+
+                <SVG
+                    src={icons.fire}
+                    id='icon'
+                />
+            </Card>
+
         </MainContainer>
     );
 };
 
+const Card = styled.div`
+    background-color: transparent;
+
+    height: 200px;
+    width: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    border-radius: 10px;
+    border: 1px solid white;
+
+    color: white;
+
+    p {
+        font-size: 28px;
+    }
+
+    #icon {
+        height: 50px;
+        width: 50px;
+    }
+`;
+
 const MainContainer = styled.div`
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+
+    gap: 40px;
 
     @media (max-width: 550px) {
         flex-direction: column;
@@ -71,12 +114,14 @@ const InnerContainer = styled.div`
 
     justify-content: space-between;
 
-    // background-color: pink;
+    /* background-color: pink; */
 
     color: ${Colours.white};
 
     @media (max-width: 550px) {
         width: 100%;
+
+        gap: 20px;
     }
 `;
 
@@ -103,6 +148,13 @@ const TechsContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    /* background-color: pink; */
+
+    @media (max-width: 550px) {
+        justify-content: center;
+        align-items: center;
+    }
 `;
 
 export default ProjectDetails;
