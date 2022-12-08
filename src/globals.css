@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'FiraCode';
+  src: url('./assets/fonts/FiraCode-Medium.ttf');
+}
+
+@layer components {
+  #__next {
+    @apply flex flex-col min-h-screen;
+  }
+
+  body {
+    @apply bg-primary-med text-secondary-white;
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: FiraCode;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
