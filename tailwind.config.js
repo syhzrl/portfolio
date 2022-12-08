@@ -4,16 +4,19 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                // bgPrimary: '#050505',
-                bgPrimary: '#0B0C10',
-                bgSecondary: '#1F2833',
-                greyHover: '#303234',
-                primary: '#FE007E',
-                turquiose: '#66FCF1',
+                'primary-dark': '#01080E',
+                'primary-med': '#011221',
+                'primary-light': '#011627',
+                'secondary-grey': '#607B96',
+                'secondary-green': '#3C9D93',
+                'secondary-purple': '#4D5BCE',
+                'secondary-white': '#FFFFFF',
+                'accent-yellow': '#FEA55F',
+                'accent-green': '#43D9AD',
+                'accent-orange': '#E99287',
+                'accent-pink': '#C98BDF',
+                line: '#1E2D3D',
             },
-        },
-        fontFamily: {
-            primary: ['SF-Pro'],
         },
     },
     plugins: [],
