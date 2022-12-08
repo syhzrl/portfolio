@@ -7,9 +7,13 @@
   src: url('./assets/fonts/FiraCode-Medium.ttf');
 }
 
-@layer {
+@layer components {
+  #__next {
+    @apply flex flex-col min-h-screen;
+  }
+
   body {
-    @apply bg-primary-med;
+    @apply bg-primary-med text-secondary-white;
   }
 }
 
