@@ -1,5 +1,5 @@
-import bongoCat from './bongo-cat-codes.gif';
+import kirby from './kirby.gif';
 
 export default {
-    bongoCat,
+    kirby,
 };
