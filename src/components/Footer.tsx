@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactNode } from 'react';
-import { LinkedIn, Email, Github } from 'assets/icons';
+import { Email, Github, LinkedInFull } from 'assets/icons';
 
 interface FooterButtonProps {
     children: ReactNode;
@@ -22,7 +22,7 @@ const Footer: FunctionComponent = () => {
             </div>
 
             <FooterButton>
-                <LinkedIn
+                <LinkedInFull
                     height={20}
                     width={20}
                 />
