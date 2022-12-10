@@ -2,6 +2,8 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
+import AboutTabsProvider from 'contexts/AboutTabs';
+
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 
@@ -13,10 +15,12 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
             <Head>
                 <title>{'Aril\'s Portfolio'}</title>
                 <meta name='description' content={'Aril\'s Portfolio'} />
-                <link rel='icon' href='/favicon.ico' />
+                <link rel='icon' href='/port-icon.ico' />
             </Head>
             <Header />
-            <Component {...pageProps} />
+            <AboutTabsProvider>
+                <Component {...pageProps} />
+            </AboutTabsProvider>
             <Footer />
         </>
     );

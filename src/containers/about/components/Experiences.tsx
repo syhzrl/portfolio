@@ -1,11 +1,13 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 
-const AboutScreen: FunctionComponent = () => {
+const Experiences: FunctionComponent = () => {
     return (
         <div className='flex items-center justify-center flex-1'>
-            AboutScreen
+            <p className='text-secondary-grey'>
+                Experiences index
+            </p>
         </div>
     );
 };
 
-export default AboutScreen;
+export default Experiences;
