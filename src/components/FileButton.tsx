@@ -1,17 +1,15 @@
-import React, { FunctionComponent, useContext } from 'react';
-
-import { AboutTabsContext } from 'contexts/AboutTabs';
+import React, { FunctionComponent } from 'react';
 
 import { File } from 'assets/icons';
 
 interface FileButtonProps {
     label: string;
+    selectedTab: string;
     onClick: () => void;
 }
 
 const FileButton: FunctionComponent<FileButtonProps> = (props: FileButtonProps) => {
-    const { label, onClick } = props;
-    const { selectedTab } = useContext(AboutTabsContext);
+    const { label, selectedTab, onClick } = props;
 
     return (
         <button

@@ -1,47 +1,47 @@
 import React, { FunctionComponent, useContext } from 'react';
 
-import { AboutTabsContext } from 'contexts/AboutTabs';
+import { TabsContext } from 'contexts/Tabs';
 
 import { Caret, Email, LinkedInFull } from 'assets/icons';
 
-import NoFileOpened from './NoFileOpened';
-import Bio from './Bio';
-import Experiences from './Experiences';
-import FrontEnd from './FrontEnd';
-import BackEnd from './BackEnd';
+import TopBar from 'components/TopBar';
+import FileButton from 'components/FileButton';
+import FolderButton from 'components/FolderButton';
+import NoFileOpened from 'components/NoFileOpened';
 
-import TopBar from './components/TopBar';
-import FileButton from './components/FileButton';
-import FolderButton from './components/FolderButton';
+import Bio from './components/Bio';
+import Experiences from './components/Experiences';
+import FrontEnd from './components/FrontEnd';
+import BackEnd from './components/BackEnd';
 
 const AboutScreen: FunctionComponent = () => {
-    const { openedTabs, setOpenedTabs, selectedTab, setSelectedTab } = useContext(AboutTabsContext);
+    const { openedAboutTabs, setOpenedAboutTabs, selectedAboutTab, setSelectedAboutTab } = useContext(TabsContext);
 
     const fileButtonClickHandler = (label: string) => {
-        setSelectedTab(label);
-        setOpenedTabs((prev: string[]) => {
+        setSelectedAboutTab(label);
+        setOpenedAboutTabs((prev: string[]) => {
             if (prev.find(item => item === label)) return prev;
             return [...prev, label];
         });
     };
 
     const topBarButtonClickHandler = (label: string) => {
-        const filteredTabs = openedTabs.filter(item => item !== label);
+        const filteredTabs = openedAboutTabs.filter(item => item !== label);
 
-        setOpenedTabs(filteredTabs);
+        setOpenedAboutTabs(filteredTabs);
 
-        const indexOfClosedTab = openedTabs.indexOf(label);
+        const indexOfClosedTab = openedAboutTabs.indexOf(label);
 
         // // If you close a tab using the top bar while ure on a file, it will default to the first opened file just like in vscode
         if (filteredTabs.length > 0) {
-            setSelectedTab(indexOfClosedTab > 0 ? openedTabs[0] : openedTabs[1]);
+            setSelectedAboutTab(indexOfClosedTab > 0 ? openedAboutTabs[0] : openedAboutTabs[1]);
         } else {
-            setSelectedTab('');
+            setSelectedAboutTab('');
         }
     };
 
     const renderFile = () => {
-        switch (selectedTab) {
+        switch (selectedAboutTab) {
             case 'bio': return <Bio />;
             case 'exp-summary': return <Experiences />;
             case 'front-end': return <FrontEnd />;
@@ -68,6 +68,7 @@ const AboutScreen: FunctionComponent = () => {
                     <FolderButton
                         folderLabel='experiences'
                         folderColour='#E99287'
+                        selectedTab={selectedAboutTab}
                         files={['exp-summary', 'front-end', 'back-end']}
                         onClick={fileButtonClickHandler}
                     />
@@ -75,6 +76,7 @@ const AboutScreen: FunctionComponent = () => {
                     <FolderButton
                         folderLabel='education'
                         folderColour='#4D5BCE'
+                        selectedTab={selectedAboutTab}
                         files={['university', 'college']}
                         onClick={fileButtonClickHandler}
                     />
@@ -82,12 +84,14 @@ const AboutScreen: FunctionComponent = () => {
                     <FolderButton
                         folderLabel='interests'
                         folderColour='#3C9D93'
+                        selectedTab={selectedAboutTab}
                         files={['coding', 'games', 'music', 'art']}
                         onClick={fileButtonClickHandler}
                     />
 
                     <FileButton
                         label='bio'
+                        selectedTab={selectedAboutTab}
                         onClick={() => fileButtonClickHandler('bio')}
                     />
                 </div>
@@ -138,7 +142,9 @@ const AboutScreen: FunctionComponent = () => {
 
             <div className='w-[85%] flex flex-col'>
                 <TopBar
-                    tabs={openedTabs}
+                    tabs={openedAboutTabs}
+                    selectedTab={selectedAboutTab}
+                    setSelectedTab={setSelectedAboutTab}
                     onClick={topBarButtonClickHandler}
                 />
 

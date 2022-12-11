@@ -1,6 +1,4 @@
-import React, { FunctionComponent, useContext, useState, useEffect } from 'react';
-
-import { AboutTabsContext } from 'contexts/AboutTabs';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 
 import { Chevron, Folder } from 'assets/icons';
 
@@ -9,48 +7,26 @@ import FileButton from './FileButton';
 interface FolderButtonProps {
     folderLabel: string;
     folderColour: string;
+    selectedTab: string;
     files: string[];
     onClick: (label: string) => void;
 }
 
 const FolderButton: FunctionComponent<FolderButtonProps> = (props: FolderButtonProps) => {
-    const { folderLabel, folderColour, onClick, files } = props;
-
-    const { selectedTab } = useContext(AboutTabsContext);
+    const { folderLabel, folderColour, selectedTab, onClick, files } = props;
 
     const [showFiles, setShowFiles] = useState(false);
     const [isFileOpened, setIsFileOpened] = useState(false);
 
     useEffect(() => {
-        if (
-            (folderLabel === 'experiences' && selectedTab === 'exp-summary')
-            || (folderLabel === 'experiences' && selectedTab === 'front-end')
-            || (folderLabel === 'experiences' && selectedTab === 'back-end')
-        ) {
+        if (files.includes(selectedTab)) {
             setIsFileOpened(true);
-            return;
-        }
-
-        if (
-            (folderLabel === 'education' && selectedTab === 'university')
-            || (folderLabel === 'education' && selectedTab === 'college')
-        ) {
-            setIsFileOpened(true);
-            return;
-        }
-
-        if (
-            (folderLabel === 'interests' && selectedTab === 'coding')
-            || (folderLabel === 'interests' && selectedTab === 'games')
-            || (folderLabel === 'interests' && selectedTab === 'music')
-            || (folderLabel === 'interests' && selectedTab === 'art')
-        ) {
-            setIsFileOpened(true);
+            setShowFiles(true);
             return;
         }
 
         setIsFileOpened(false);
-    }, [selectedTab, folderLabel]);
+    }, [selectedTab, files]);
 
     return (
         <>
@@ -88,6 +64,7 @@ const FolderButton: FunctionComponent<FolderButtonProps> = (props: FolderButtonP
                             >
                                 <FileButton
                                     label={item}
+                                    selectedTab={selectedTab}
                                     onClick={() => onClick(item)}
                                 />
                             </div>

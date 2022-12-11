@@ -1,18 +1,16 @@
-import React, { FunctionComponent, useContext } from 'react';
-
-import { AboutTabsContext } from 'contexts/AboutTabs';
+import React, { FunctionComponent } from 'react';
 
 import { Close, File } from 'assets/icons';
 
 interface TopBarProps {
     tabs: string[];
+    selectedTab: string;
+    setSelectedTab: (value: React.SetStateAction<string>) => void
     onClick: (label: string) => void;
 }
 
 const TopBar: FunctionComponent<TopBarProps> = (props: TopBarProps) => {
-    const { tabs, onClick } = props;
-
-    const { selectedTab, setSelectedTab } = useContext(AboutTabsContext);
+    const { tabs, selectedTab, setSelectedTab, onClick } = props;
 
     if (tabs.length < 1) return null;
 
