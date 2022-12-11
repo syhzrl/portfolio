@@ -17,12 +17,12 @@ const FileButton: FunctionComponent<FileButtonProps> = (props: FileButtonProps) 
         <button
             type='button'
             onClick={onClick}
-            className={`flex items-center w-full gap-2 p-2 px-4 hover:bg-primary-light ${selectedTab === label && 'bg-line'}`}
+            className={`flex items-center text-secondary-grey w-full gap-2 p-1 px-4 hover:bg-primary-light ${selectedTab === label && 'text-white'}`}
         >
             <File
                 height={18}
                 width={18}
-                color='#607B96'
+                color={selectedTab === label ? '#FEA55F' : '#607B96'}
             />
 
             <p>

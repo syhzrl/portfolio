@@ -9,10 +9,10 @@ interface AboutTabsContextInterface {
 }
 
 const initialState: AboutTabsContextInterface = {
-    selectedTab: '',
+    selectedTab: 'bio',
     setSelectedTab: () => null,
 
-    openedTabs: [],
+    openedTabs: ['bio'],
     setOpenedTabs: () => null,
 };
 
@@ -25,8 +25,8 @@ interface AboutTabsProviderProps {
 const AboutTabsProvider: FunctionComponent<AboutTabsProviderProps> = (props: AboutTabsProviderProps) => {
     const { children } = props;
 
-    const [selectedTab, setSelectedTab] = useState('');
-    const [openedTabs, setOpenedTabs] = useState<string[]>([]);
+    const [selectedTab, setSelectedTab] = useState('bio');
+    const [openedTabs, setOpenedTabs] = useState<string[]>(['bio']);
 
     const memoValue: AboutTabsContextInterface = useMemo(() => ({
         selectedTab,

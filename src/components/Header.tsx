@@ -1,22 +1,24 @@
 import React, { FunctionComponent } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 interface HeaderButtonProps {
     label: string;
     selected: boolean;
-    onClick: () => void;
+    path: string;
 }
 
 const HeaderButton: FunctionComponent<HeaderButtonProps> = (props: HeaderButtonProps) => {
-    const { label, selected, onClick } = props;
+    const { label, selected, path } = props;
 
     return (
         <button
             type='button'
-            onClick={onClick}
             className={`p-2 px-6 hover:bg-primary-light hover:text-secondary-white transition-colors duration-150 border-r w-fit border-r-line ${selected ? 'text-secondary-white border-b-2 border-b-accent-yellow ' : 'text-secondary-grey'} ${label === '_contact-me' && 'ml-auto border-l-line border-l'}`}
         >
-            {label}
+            <Link href={path}>
+                {label}
+            </Link>
         </button>
     );
 };
@@ -33,23 +35,23 @@ const Header: FunctionComponent = () => {
 
             <HeaderButton
                 label='_hello'
+                path='/'
                 selected={router.pathname === '/'}
-                onClick={() => router.push('/')}
             />
             <HeaderButton
                 label='_about-me'
+                path='/about'
                 selected={router.pathname === '/about'}
-                onClick={() => router.push('/about')}
             />
             <HeaderButton
                 label='_projects'
+                path='/projects'
                 selected={router.pathname === '/projects'}
-                onClick={() => router.push('/projects')}
             />
             <HeaderButton
                 label='_contact-me'
+                path='/contact'
                 selected={router.pathname === '/contact'}
-                onClick={() => router.push('/contact')}
             />
         </header>
     );

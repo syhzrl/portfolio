@@ -14,18 +14,22 @@ const CodeBlock: FunctionComponent<CodeBlockProps> = (props: CodeBlockProps) => 
             showLineNumbers
             className={codeBlockStyle}
             style={codeBlockStyle}
+            wrapLongLines
             language='typescript'
             customStyle={{
                 background: 'transparent',
                 backgroundColor: 'transparent',
-                padding: '0 1rem',
-                fontSize: '16px',
+                padding: '0.5rem 1rem',
+                margin: 0,
+                fontSize: 'inherit',
                 fontFamily: 'inherit',
+                width: '100%',
+                height: '100%',
             }}
             codeTagProps={{
                 style: {
                     fontFamily: 'inherit',
-                    fontSize: '16px',
+                    fontSize: 'inherit',
                 },
             }}
         >

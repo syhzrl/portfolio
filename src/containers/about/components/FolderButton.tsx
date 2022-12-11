@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useContext } from 'react';
+import React, { FunctionComponent, useContext, useState, useEffect } from 'react';
 
 import { AboutTabsContext } from 'contexts/AboutTabs';
 
@@ -15,16 +15,49 @@ interface FolderButtonProps {
 
 const FolderButton: FunctionComponent<FolderButtonProps> = (props: FolderButtonProps) => {
     const { folderLabel, folderColour, onClick, files } = props;
+
     const { selectedTab } = useContext(AboutTabsContext);
 
     const [showFiles, setShowFiles] = useState(false);
+    const [isFileOpened, setIsFileOpened] = useState(false);
+
+    useEffect(() => {
+        if (
+            (folderLabel === 'experiences' && selectedTab === 'exp-summary')
+            || (folderLabel === 'experiences' && selectedTab === 'front-end')
+            || (folderLabel === 'experiences' && selectedTab === 'back-end')
+        ) {
+            setIsFileOpened(true);
+            return;
+        }
+
+        if (
+            (folderLabel === 'education' && selectedTab === 'university')
+            || (folderLabel === 'education' && selectedTab === 'college')
+        ) {
+            setIsFileOpened(true);
+            return;
+        }
+
+        if (
+            (folderLabel === 'interests' && selectedTab === 'coding')
+            || (folderLabel === 'interests' && selectedTab === 'games')
+            || (folderLabel === 'interests' && selectedTab === 'music')
+            || (folderLabel === 'interests' && selectedTab === 'art')
+        ) {
+            setIsFileOpened(true);
+            return;
+        }
+
+        setIsFileOpened(false);
+    }, [selectedTab, folderLabel]);
 
     return (
-        <div>
+        <>
             <button
                 type='button'
                 onClick={() => setShowFiles(!showFiles)}
-                className='flex items-center w-full gap-2 p-2 px-4 hover:bg-primary-light'
+                className={`flex items-center w-full gap-2 p-2 px-4 hover:bg-primary-light ${isFileOpened ? 'text-white' : 'text-secondary-grey'}`}
             >
                 <div className={`${showFiles && 'rotate-90'} transition-transform duration-150`}>
                     <Chevron
@@ -45,24 +78,24 @@ const FolderButton: FunctionComponent<FolderButtonProps> = (props: FolderButtonP
                 </p>
             </button>
 
-            <div>
-                {showFiles && (
-                    <>
-                        {files.map(item => {
-                            return (
-                                <div className={`px-6 ${selectedTab === item && 'bg-line'} hover:bg-primary-light`}>
-                                    <FileButton
-                                        key={item}
-                                        label={item}
-                                        onClick={() => onClick(item)}
-                                    />
-                                </div>
-                            );
-                        })}
-                    </>
-                )}
-            </div>
-        </div>
+            {showFiles && (
+                <>
+                    {files.map(item => {
+                        return (
+                            <div
+                                key={item}
+                                className='px-6 hover:bg-primary-light'
+                            >
+                                <FileButton
+                                    label={item}
+                                    onClick={() => onClick(item)}
+                                />
+                            </div>
+                        );
+                    })}
+                </>
+            )}
+        </>
     );
 };
 
