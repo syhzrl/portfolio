@@ -1,11 +1,13 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 
-const ProjectsScreen: FunctionComponent = () => {
+const FrontEnd: FunctionComponent = () => {
     return (
         <div className='flex items-center justify-center flex-1'>
-            ProjectsScreen
+            <p className='text-secondary-grey'>
+                FrontEnd
+            </p>
         </div>
     );
 };
 
-export default ProjectsScreen;
+export default FrontEnd;

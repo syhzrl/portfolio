@@ -63,6 +63,7 @@
     "import/no-anonymous-default-export": "off",
     "react/display-name": "off",
     "no-unused-vars": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {

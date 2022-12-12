@@ -9,11 +9,23 @@
 
 @layer components {
   #__next {
-    @apply flex flex-col min-h-screen;
+    @apply flex flex-col h-screen;
   }
 
   body {
     @apply bg-primary-med text-secondary-white;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-[6px] h-0;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-primary-light;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-secondary-grey;
   }
 }
 

@@ -1,38 +1,38 @@
-import React, { FunctionComponent, useContext } from 'react';
-
-import { AboutTabsContext } from 'contexts/AboutTabs';
+import React, { FunctionComponent } from 'react';
 
 import { Close, File } from 'assets/icons';
 
 interface TopBarProps {
     tabs: string[];
+    selectedTab: string;
+    setSelectedTab: (value: React.SetStateAction<string>) => void
     onClick: (label: string) => void;
 }
 
 const TopBar: FunctionComponent<TopBarProps> = (props: TopBarProps) => {
-    const { tabs, onClick } = props;
-
-    const { selectedTab, setSelectedTab } = useContext(AboutTabsContext);
+    const { tabs, selectedTab, setSelectedTab, onClick } = props;
 
     if (tabs.length < 1) return null;
 
     return (
-        <div className='flex w-full border-b border-b-line'>
+        <div className='flex w-full overflow-auto overflow-y-hidden border-b h-fit border-b-line'>
             {tabs.map(item => {
                 return (
                     <div
                         key={item}
-                        className={`flex items-center gap-2 border-r border-r-line w-fit hover:bg-primary-light ${selectedTab === item && 'bg-line'}`}
+                        onMouseDown={(event) => { if (event.button === 1) event.preventDefault(); }}
+                        onAuxClick={(event) => { if (event.button === 1) event.preventDefault(); onClick(item); }}
+                        className={`flex items-center whitespace-nowrap text-secondary-grey gap-2 border-r border-r-line w-fit hover:bg-primary-light ${selectedTab === item && 'text-white'}`}
                     >
                         <button
                             type='button'
-                            className='flex items-center w-full gap-2 p-2 px-4'
+                            className='flex w-full gap-2 p-2 px-4'
                             onClick={() => setSelectedTab(item)}
                         >
                             <File
                                 height={18}
                                 width={18}
-                                color='#607B96'
+                                color={selectedTab === item ? '#FEA55F' : '#607B96'}
                             />
 
                             <p>
@@ -41,7 +41,7 @@ const TopBar: FunctionComponent<TopBarProps> = (props: TopBarProps) => {
                         </button>
                         <button
                             type='button'
-                            className='p-2 px-4'
+                            className='p-2 px-4 transition-colors duration-150 text-secondary-grey hover:text-white'
                             onClick={() => onClick(item)}
 
                         >

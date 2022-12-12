@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+
 import { useRouter } from 'next/router';
 
 interface HeaderButtonProps {
@@ -23,6 +24,11 @@ const HeaderButton: FunctionComponent<HeaderButtonProps> = (props: HeaderButtonP
 
 const Header: FunctionComponent = () => {
     const router = useRouter();
+
+    const headerButtonClickHandler = (path: string) => {
+        router.push(path);
+    };
+
     return (
         <header className='flex w-full border-b border-b-line'>
             <div className='w-[15%] border-r border-r-line p-2 pl-4 text-secondary-grey'>
@@ -34,22 +40,22 @@ const Header: FunctionComponent = () => {
             <HeaderButton
                 label='_hello'
                 selected={router.pathname === '/'}
-                onClick={() => router.push('/')}
+                onClick={() => headerButtonClickHandler('/')}
             />
             <HeaderButton
                 label='_about-me'
                 selected={router.pathname === '/about'}
-                onClick={() => router.push('/about')}
+                onClick={() => headerButtonClickHandler('/about')}
             />
             <HeaderButton
                 label='_projects'
                 selected={router.pathname === '/projects'}
-                onClick={() => router.push('/projects')}
+                onClick={() => headerButtonClickHandler('/projects')}
             />
             <HeaderButton
                 label='_contact-me'
                 selected={router.pathname === '/contact'}
-                onClick={() => router.push('/contact')}
+                onClick={() => headerButtonClickHandler('/contact')}
             />
         </header>
     );

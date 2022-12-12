@@ -3,11 +3,11 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     images: {
-        formats: ['image/avif'],
+        formats: ['image/webp'],
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'media.giphy.com',
+                hostname: 'www.kreedon.com',
                 // pathname: '/api/**',
             },
         ],
