@@ -1,53 +1,19 @@
-import React, { FunctionComponent, useContext, useState } from 'react';
+import React, { FunctionComponent, useContext } from 'react';
 
 import { TabsContext } from 'contexts/Tabs';
 
-import { Caret, Email, LinkedInFull, React as ReactIcon, Tailwind, Tick, NestJs } from 'assets/icons';
+import { Caret } from 'assets/icons';
 
 import FolderButton from 'components/FolderButton';
 import FileButton from 'components/FileButton';
 import TopBar from 'components/TopBar';
 import NoFileOpened from 'components/NoFileOpened';
-
-// interface TechStackButtonProps {
-//     label: string;
-//     selected: boolean;
-//     icon: any;
-//     onClick: (value: string) => void;
-// }
-
-// const TechStackButton: FunctionComponent<TechStackButtonProps> = (props: TechStackButtonProps) => {
-//     const { label, selected, icon, onClick } = props;
-
-//     const clickHandler = () => {
-//         onClick(label);
-//     };
-
-//     return (
-//         <div className='flex items-center gap-4 p-2 px-6'>
-//             <button
-//                 type='button'
-//                 onClick={clickHandler}
-//                 className={`flex items-center justify-center p-1 border rounded-md w-7 h-7 border-line ${selected ? 'bg-secondary-grey' : 'bg-transparent'}`}
-//             >
-//                 <Tick color={`${selected ? 'white' : 'transparent'}`} />
-//             </button>
-
-//             <div className='flex items-center gap-2'>
-//                 {/* <ReactIcon
-//                     height={25}
-//                     width={25}
-//                 /> */}
-
-//                 {icon}
-
-//                 <p>
-//                     {label}
-//                 </p>
-//             </div>
-//         </div>
-//     );
-// };
+import Summary from './components/Summary';
+import DoubleDot from './components/DoubleDot';
+import SansPaper from './components/SansPaper';
+import FrontEnd from './components/side-projects/FrontEnd';
+import BackEnd from './components/side-projects/BackEnd';
+import FullStack from './components/side-projects/FullStack';
 
 const ProjectsScreen: FunctionComponent = () => {
     const { openedProjectsTabs, setOpenedProjectsTabs, selectedProjectsTab, setSelectedProjectsTab } = useContext(TabsContext);
@@ -77,13 +43,18 @@ const ProjectsScreen: FunctionComponent = () => {
 
     const renderFile = () => {
         switch (selectedProjectsTab) {
-            case 'summary': return <NoFileOpened />;
+            case 'summary': return <Summary />;
+            case 'double-dot': return <DoubleDot />;
+            case 'sans-paper': return <SansPaper />;
+            case 'front-end': return <FrontEnd />;
+            case 'back-end': return <BackEnd />;
+            case 'full-stack': return <FullStack />;
             default: return <NoFileOpened />;
         }
     };
 
     return (
-        <div className='flex flex-1'>
+        <div className='flex justify-center flex-1 overflow-hidden'>
             <div className='w-[15%] border-r border-r-line h-full flex flex-col gap-2'>
                 <div className='flex items-center w-full gap-2 p-2 px-4 border-b border-b-line h-fit'>
                     <Caret
