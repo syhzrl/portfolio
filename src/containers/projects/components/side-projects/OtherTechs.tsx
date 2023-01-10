@@ -1,13 +1,13 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 
-const BackEnd: FunctionComponent = () => {
+const OtherTechs: FunctionComponent = () => {
     return (
         <div className='flex items-center justify-center flex-1'>
             <p className='text-secondary-grey'>
-                BackEnd
+                OtherTechs
             </p>
         </div>
     );
 };
 
-export default BackEnd;
+export default OtherTechs;

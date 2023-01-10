@@ -12,7 +12,7 @@ import Summary from './components/Summary';
 import DoubleDot from './components/DoubleDot';
 import SansPaper from './components/SansPaper';
 import FrontEnd from './components/side-projects/FrontEnd';
-import BackEnd from './components/side-projects/BackEnd';
+import OtherTechs from './components/side-projects/OtherTechs';
 import FullStack from './components/side-projects/FullStack';
 
 const ProjectsScreen: FunctionComponent = () => {
@@ -47,7 +47,7 @@ const ProjectsScreen: FunctionComponent = () => {
             case 'double-dot': return <DoubleDot />;
             case 'sans-paper': return <SansPaper />;
             case 'front-end': return <FrontEnd />;
-            case 'back-end': return <BackEnd />;
+            case 'other-techs': return <OtherTechs />;
             case 'full-stack': return <FullStack />;
             default: return <NoFileOpened />;
         }
@@ -80,7 +80,7 @@ const ProjectsScreen: FunctionComponent = () => {
                         folderLabel='side projects'
                         folderColour='#3C9D93'
                         selectedTab={selectedProjectsTab}
-                        files={['front-end', 'back-end', 'full-stack']}
+                        files={['front-end', 'full-stack', 'other-techs']}
                         onClick={fileButtonClickHandler}
                     />
 
