@@ -4,10 +4,11 @@ import Image from 'next/image';
 interface ProjectCardProps {
     name: string;
     desc: string;
+    onClick: (projectName: string) => void;
 }
 
 const ProjectCard: FunctionComponent<ProjectCardProps> = (props: ProjectCardProps) => {
-    const { name, desc } = props;
+    const { name, desc, onClick } = props;
 
     return (
         <div className='flex flex-col gap-1 h-80 w-80 basis-2/6'>
@@ -36,6 +37,7 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = (props: ProjectCardProp
 
                     <button
                         type='button'
+                        onClick={() => onClick(name)}
                         className='p-2 text-white transition-colors duration-150 rounded-md bg-button-grey hover:bg-button-grey-hover'
                     >
                         view-project

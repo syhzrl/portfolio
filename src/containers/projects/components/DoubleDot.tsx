@@ -1,8 +1,9 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 
 import { Project } from 'entities/project';
 
 import ProjectCard from './ProjectCard';
+import DoubleDotProjectModal from './DoubleDotProjectModal';
 
 const projectData: Project[] = [{
     name: 'VPC',
@@ -25,7 +26,14 @@ const projectData: Project[] = [{
 }];
 
 const DoubleDot: FunctionComponent = () => {
-    // 'flex flex-wrap justify-center flex-1 w-full gap-6'
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedProject, setSelectedProject] = useState('');
+
+    const projectCardClickHandler = (projName: string) => {
+        setIsOpen(!isOpen);
+        setSelectedProject(projName);
+    };
+
     return (
         <div className='flex flex-col items-start justify-start flex-1 gap-6 p-6 overflow-auto'>
             <div className='flex flex-col gap-2'>
@@ -56,12 +64,18 @@ const DoubleDot: FunctionComponent = () => {
                                 key={name}
                                 name={name}
                                 desc={desc}
+                                onClick={projectCardClickHandler}
                             />
                         );
                     })}
                 </div>
             </div>
 
+            <DoubleDotProjectModal
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                selectedProject={selectedProject}
+            />
         </div>
     );
 };
