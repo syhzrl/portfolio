@@ -14,7 +14,7 @@ const ContactScreen: FunctionComponent = () => {
 const message = {
     name: "${name}",
     email: "${email}",
-    message: "${message}"
+    message: \`${message}\`
 }
 
 button.addEventListener('click', () => {
